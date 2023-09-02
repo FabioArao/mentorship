@@ -26,6 +26,11 @@
 {% endfor %}
 </ul>
 
-<a href="{% url 'interviews:create' job_pk=job.pk %}" class="btn btn-success">simulate interview</a>
+<form action="{% url 'interviews:create' job_pk=job.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-success">simulate interview</button>
+</form>
+
+
 {% endblock content %}
 
